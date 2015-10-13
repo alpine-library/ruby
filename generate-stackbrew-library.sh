@@ -6,9 +6,8 @@ aliases=(
 	["2.2"]='2 latest'
 )
 
-# alias readlink=greadlink
 
-cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
+which greadlink > /dev/null 2>&1 && cd "$(dirname "$(greadlink -f "$BASH_SOURCE")")" || cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 versions=( */ )
 versions=( "${versions[@]%/}" )
